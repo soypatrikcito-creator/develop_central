@@ -46,6 +46,32 @@ function renderTasks() {
         else if (task.status === 'progress') colProgress.innerHTML += cardHtml;
         else if (task.status === 'done') colDone.innerHTML += cardHtml;
     });
+
+    updateCounters();
+}
+
+/**
+ * Muestra en el encabezado de cada columna cuantas tarjetas contiene (WIP visible).
+ */
+function updateCounters() {
+    const columns = { todo: 'col-todo', progress: 'col-progress', done: 'col-done' };
+
+    Object.keys(columns).forEach(status => {
+        const column = document.getElementById(columns[status]);
+        if (!column || !column.parentElement) return;
+
+        const heading = column.parentElement.querySelector('h5');
+        if (!heading) return;
+
+        let badge = heading.querySelector('.task-count');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'badge rounded-pill bg-secondary-subtle text-secondary-emphasis ms-2 task-count';
+            heading.appendChild(badge);
+        }
+
+        badge.textContent = tasks.filter(t => t.status === status).length;
+    });
 }
 
 function moveTask(id, direction) {
