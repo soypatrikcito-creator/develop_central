@@ -63,8 +63,33 @@ function moveTask(id, direction) {
 }
 
 function deleteTask(id) {
+    const task = tasks.find(t => t.id === id);
+    if (!task) return;
+
+    if (!window.confirm('Eliminar la tarea "' + task.title + '"?')) return;
+
     tasks = tasks.filter(t => t.id !== id);
     renderTasks();
+    showMessage('Tarea eliminada correctamente.');
+}
+
+/**
+ * Muestra un mensaje de confirmacion breve en la parte superior del tablero.
+ */
+function showMessage(text) {
+    const board = document.getElementById('page-kanban');
+    if (!board) return;
+
+    let alertBox = document.getElementById('kanban-message');
+    if (!alertBox) {
+        alertBox = document.createElement('div');
+        alertBox.id = 'kanban-message';
+        alertBox.className = 'alert alert-success alert-dismissible fade show';
+        alertBox.setAttribute('role', 'alert');
+        board.prepend(alertBox);
+    }
+
+    alertBox.innerHTML = text + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
