@@ -58,3 +58,21 @@ Issue (User Story) → rama feature → Pull Request → revisión/Approve → m
 - Existe la rama `develop` y contiene las contribuciones de todo el equipo.
 - Cada integrante tiene su fork `develop_personaN` con al menos un PR mergeado.
 - Issues, Milestone y tablero Kanban actualizados.
+
+## Requisitos del entorno
+
+- Navegador moderno (Chrome, Edge o Firefox actualizado).
+- Conexion a internet la primera vez, para cargar Bootstrap y los iconos desde el CDN.
+- Opcional: Python 3 o Node.js si prefieres servir la carpeta con un servidor local.
+- Git 2.30+ y una cuenta de GitHub para participar en el flujo de ramas y Pull Requests.
+
+## Como se generan las evidencias del laboratorio
+
+| Paso | Evidencia |
+|------|-----------|
+| 5.1 | URL de `develop_central` + captura de la pagina Code con los archivos |
+| 5.2 | Captura de la rama `develop` en el selector de ramas |
+| 5.3 | Captura de Issues + Milestone + tablero Kanban |
+| 5.4 | URL del fork `develop_personaN` + captura del repositorio |
+| 5.5 | URL del PR + captura de *Files changed* y del PR mergeado |
+| 5.6 | Historial de commits de `develop` y tablero completo en Done |
